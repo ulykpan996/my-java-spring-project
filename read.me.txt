@@ -1,0 +1,78 @@
+Implementation: Auth0 Java Spring Boot Microservices Tutorial
+Student: Ulykpan Adilzhan
+Branch: syrymzhakypbekov-auth0-microservices
+Commit Hash: [Latest Commit Hash]
+
+Project Overview
+This project implements a microservices architecture using Java Spring Boot, based on the Auth0 tutorial, to build secure, scalable, and maintainable APIs. The tutorial guided the integration of OAuth2 authentication with Auth0 and demonstrated how to secure microservices using JWT tokens. The project contains two microservices (product-api and api-gateway) and a configuration setup to authenticate and authorize requests using Auth0.
+
+Key Concepts Implemented
+Microservices Architecture:
+The project uses a microservices architecture where different functionalities are encapsulated in separate services. Each service can operate independently, improving scalability and maintainability.
+
+OAuth2 Authentication:
+Implemented OAuth2 login to handle user authentication via Auth0. The API Gateway serves as an entry point to the microservices, validating tokens before forwarding requests.
+
+JWT-Based Security:
+Used JSON Web Tokens (JWT) for secure communication between microservices. Tokens are issued by Auth0 and validated in each service to ensure that only authorized users can access protected endpoints.
+
+Spring Boot Integration:
+Utilized Spring Boot to quickly set up and configure the microservices, making use of its extensive ecosystem for handling security, API routing, and dependency management.
+
+API Gateway:
+The API Gateway is used to route requests to the appropriate microservices, handling the authentication and ensuring that only requests with valid tokens are allowed.
+
+Unique Feature/Modification
+To extend the basic tutorial, I added a custom authorization policy to further restrict access to specific APIs. By modifying the security configurations, I ensured that only users with a specific role (e.g., admin) can access certain endpoints. This feature enhances the security and provides more granular control over access permissions.
+
+Build & Run Instructions
+Prerequisites:
+
+Java 17 or later.
+
+Maven.
+
+Spring Boot.
+
+IntelliJ IDEA (or any Java IDE).
+
+Auth0 account (for OAuth2 configuration).
+
+Steps to Build and Run:
+
+Clone the repository:
+
+bash
+
+git clone https://github.com/IITU-Software-Engineering-Labs/2110.git
+cd 2110
+Navigate to the auth0-microservices project folder.
+
+Install the dependencies:
+
+bash
+
+mvn clean install
+Configure your Auth0 settings in application.properties for both product-api and api-gateway. Make sure to replace the placeholder values with your actual Auth0 credentials.
+
+Run the services:
+
+Start the product-api service:
+
+bash
+
+mvn spring-boot:run -f product-api/pom.xml
+Start the api-gateway service:
+
+bash
+
+mvn spring-boot:run -f api-gateway/pom.xml
+Access the services via the appropriate URLs (e.g., http://localhost:8080 for the API Gateway).
+
+Postman Configuration:
+
+Use Postman to test the authentication and authorization flow. Ensure to first obtain an access token from Auth0, and then use it to make authenticated requests to the services.
+
+Conclusion
+This project successfully demonstrates the process of implementing secure, token-based authentication for microservices using Auth0 and Spring Boot. By following the tutorial, I gained hands-on experience in configuring OAuth2 authentication, setting up JWT validation, and building a scalable microservices architecture. The unique feature added to the project (custom authorization policies) allowed for further customization and enhanced the security of the APIs.
+
